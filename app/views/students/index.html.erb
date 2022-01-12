@@ -1,0 +1,10 @@
+<ol>
+<% @students.each do |student| %>
+<li><%= link_to student.name,student %></li>
+<%= link_to 'edit', edit_student_path(student) %> |
+<%= link_to 'delete', student_path(student),method: :delete,data: {confirm: "are you sure?"} %> |
+
+
+<% end %>
+</ol>
+<%= link_to 'new',new_student_path(@student)%>

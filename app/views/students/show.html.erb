@@ -1,0 +1,10 @@
+<style media="screen">
+	img{
+		max-width: 300px;
+		max-height: 500px;
+	}
+</style>
+<p><%= @student.name %></p> <br>
+<p><%= @student.class_section %></p><br/> <br>
+<p><%= image_tag @student.home_work, align: 'right' %></p><br/>
+<%= link_to 'Back', students_path %>
