@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :find_student, only: [:show,:edit,:update,:destroy] 
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @students = Student.all
   end
@@ -11,6 +12,7 @@ class StudentsController < ApplicationController
   end
   def create
     @student = Student.new(student_params)
+    @student.user_id = current_user.id
     if @student.save
       redirect_to @student
     else

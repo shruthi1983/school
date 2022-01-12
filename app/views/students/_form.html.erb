@@ -13,19 +13,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
-  </div>
+    
+    <%= form.text_area :name, class: 'form-control',placeholder: 'NAME' %>
+  </div><br>
 
-  <div class="field">
-    <%= form.label :class_section %>
-    <%= form.text_field :class_section %>
-  </div>
+  <div class="form-group">
+    
+    <%= form.text_field :class_section, class: 'form-control',placeholder:'Class with section' %>
+  </div><br>
 
-  <div class="field">
-    <%= form.label :home_work %>
-    <%= form.text_field :home_work %>
-  </div>
+  <div class="field-form-group">
+  
+    <%= form.text_field :home_work,class: 'form-control',placeholder:'Assigned work' %>
+  </div><br>
 
   <div class="actions">
     <%= form.submit %>

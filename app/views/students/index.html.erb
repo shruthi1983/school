@@ -1,10 +1,23 @@
-<ol>
-<% @students.each do |student| %>
-<li><%= link_to student.name,student %></li>
-<%= link_to 'edit', edit_student_path(student) %> |
-<%= link_to 'delete', student_path(student),method: :delete,data: {confirm: "are you sure?"} %> |
+<p class="notice"><%= notice %></p>
+<table><ol>
+	 <thead class="thead-light">
+    <tr >
+      <th><h1>students lists</h1></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+<tbody>
 
+	<tr>
+	<% @students.each do |student| %>
+<td><li><%= link_to student.name,student %></li></td>
+<td><%= link_to 'edit', edit_student_path(student) %> </td><br>
+<td><%= link_to 'delete', student_path(student),method: :delete,data: {confirm: "are you sure?"} %></td> 
 
+</tr>
 <% end %>
+
 </ol>
+</tbody>
+</table>
 <%= link_to 'new',new_student_path(@student)%>
