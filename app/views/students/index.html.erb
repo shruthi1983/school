@@ -1,23 +1,24 @@
-<p class="notice"><%= notice %></p>
-<table><ol>
-	 <thead class="thead-light">
-    <tr >
-      <th><h1>students lists</h1></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-<tbody>
 
-	<tr>
+<br/>
+
+	<ol>
+    
 	<% @students.each do |student| %>
-<td><li><%= link_to student.name,student %></li></td>
-<td><%= link_to 'edit', edit_student_path(student) %> </td><br>
-<td><%= link_to 'delete', student_path(student),method: :delete,data: {confirm: "are you sure?"} %></td> 
+ 
 
-</tr>
+<li>  <%= link_to student.name,student %></li>  
+
+
+ <% if can? :update, student %><%= link_to 'Edit', edit_student_path(student) %><%end %>
+  <% if can? :destroy, student %><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
+  
+   
+    <% end %> 
+ 
+</ol>
+
+<% if can? :create, Student %>
+<%= link_to 'New Student', new_student_path(@student) %><br>
 <% end %>
 
-</ol>
-</tbody>
-</table>
-<%= link_to 'new',new_student_path(@student)%>
+

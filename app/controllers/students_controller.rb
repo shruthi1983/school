@@ -1,8 +1,10 @@
 class StudentsController < ApplicationController
+  load_and_authorize_resource
   before_action :find_student, only: [:show,:edit,:update,:destroy] 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show, :index]
   def index
-    @students = Student.all
+    @student = Student.All
+      
   end
 
   
@@ -21,6 +23,7 @@ class StudentsController < ApplicationController
  end
  def show
     @student = Student.find(params[:id])
+    @students = Student.accessible_by(current_ability,params[:action].to_sym)
   end
   def edit
     @student = Student.find(params[:id])

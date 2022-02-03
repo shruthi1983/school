@@ -1,11 +1,13 @@
 <p class="notice"><%= notice %></p>
 <style media="screen">
 	img{
-		max-width: 300px;
-		max-height: 500px;
+		max-width: 600px;
+		max-height: 600px;
 	}
 </style>
-<p><%= @student.name %></p> <br>
-<p><%= @student.class_section %></p><br/> <br>
-<p><%= image_tag @student.home_work, align: 'right' %></p><br><br>
+<h2> <%= @student.name %></h2> 
+<h2> <%= @student.class_section %> </h2> 
+<h2> <%= image_tag @student.home_work, align: 'center' %></h2> <br><br>
+
+  
 <%= link_to 'Back', students_path %>
